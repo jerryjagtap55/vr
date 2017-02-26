@@ -1,0 +1,45 @@
+<html>
+   <head>
+<meta charset="utf-8">
+<title>Trying</title>
+<meta name="description" content="Cursor — A-Frame">
+<script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
+ </head>
+ <body>
+<a-scene>
+
+    <a-sphere position="19 1.25 5" radius="2.25" color="#9900CC"></a-sphere>
+      <a-box position="-9 1 5" color="#FF0033" rotation="0 45 0" width="3" height="3" depth="1" ></a-box>
+      <a-cylinder position="1 0.75 1" radius="0.5" height="1.5" color="#FFFFFF"></a-cylinder>
+      
+
+
+  <a-entity position="0 1.8 4">
+    <a-camera id="camera">
+      <a-cursor color="#4CC3D9"></a-cursor>
+    </a-camera>
+  </a-entity>
+
+  <a-sky color="black"></a-sky>
+    <a-light type="directional" color="#FFF" intensity="0.5" position="-1 1 2"></a-light>
+    <a-light type="ambient" color="#FFF"></a-light>
+    <a-camera position="0 1 4" cursor-visible="true" cursor-scale="2" cursor-color="#0095DD" cursor-opacity="0.5"></a-camera>
+    <a-cube color="#0095DD" rotation="20 40 0" position="0 1 0">
+      <a-animation attribute="rotation" from="20 0 0" to="20 360 0" direction="alternate" dur="4000" repeat="indefinite" easing="ease"></a-animation>
+    </a-cube>
+    <a-entity geometry="primitive: torus; radius: 1; radiusTubular: 0.1; segmentsTubular: 12;" material="color: #EAEFF2; roughness: 0.1; metalness: 0.5;" rotation="10 0 0" position="-3 1 0">
+    <a-animation attribute="scale" to="1 0.5 1" direction="alternate" dur="2000" repeat="indefinite" easing="linear"></a-animation>
+    </a-entity>
+
+  <a-box id="green-cube" position="0 3.5 -2" rotation="30 30 0" width="2" depth="2" height="2" color="#F16745" roughness="0.8">
+    <a-event name="mouseenter" scale="3 1 1" color="#FFC65D"></a-event>
+    <a-event name="mouseenter" target="#shadow" scale="3 2 2"></a-event>
+    <a-event name="mouseleave" scale="1 1 1" color="#F16745"></a-event>
+    <a-event name="mouseleave" target="#shadow" scale="2 2 2"></a-event>
+  </a-box>
+
+  <a-image id="shadow" position="0 0 -2" src="../_images/radial-shadow-2.png" opacity="0.5" rotation="-90 0 0" scale="2 2 2"></a-image>
+  <a-sky color="black"></a-sky>
+</a-scene>
+ </body>
+</html>
